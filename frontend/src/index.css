@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tranzit Brand Colors */
+    --tranzit-blue: 213 72% 14%;
+    --tranzit-orange: 24 100% 50%;
+    --tranzit-green: 142 76% 36%;
+    --tranzit-red: 0 84% 60%;
+    --tranzit-yellow: 45 93% 47%;
+    
+    /* shadcn/ui variables */
+    --background: 0 0% 100%;
+    --foreground: 213 72% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 72% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 72% 14%;
+    --primary: 213 72% 14%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 213 72% 14%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 24 100% 50%;
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 213 72% 14%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 60% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 213 60% 20%;
+    --sidebar-ring: 24 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  /* Tranzit Button Styles */
+  .btn-primary {
+    @apply bg-[#FF6B00] hover:bg-[#E55F00] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-orange-500/25 active:scale-[0.98];
+  }
+  
+  .btn-secondary {
+    @apply bg-[#0B1F3A] hover:bg-[#152d4f] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 active:scale-[0.98];
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[#0B1F3A] text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 active:scale-[0.98];
+  }
+  
+  /* Card Styles */
+  .card-tranzit {
+    @apply bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden;
+  }
+  
+  .card-tranzit-hover {
+    @apply bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-300/50 hover:-translate-y-1;
+  }
+  
+  /* Status Badges */
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-searching {
+    @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-assigned {
+    @apply bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-transit {
+    @apply bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-delivered {
+    @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-cancelled {
+    @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  /* Input Styles */
+  .input-tranzit {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FF6B00] focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200;
+  }
+  
+  /* Map Container */
+  .map-container {
+    @apply w-full h-full min-h-[400px] rounded-2xl overflow-hidden;
+  }
+  
+  /* Animation Classes */
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.4s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+  
+  .animate-bounce-soft {
+    animation: bounceSoft 1s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Gradient Backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #0B1F3A 0%, #1a3a5c 100%);
+  }
+  
+  .gradient-orange {
+    background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
+  }
+  
+  /* Text Gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Shadow Utilities */
+  .shadow-tranzit {
+    box-shadow: 0 4px 20px rgba(11, 31, 58, 0.1);
+  }
+  
+  .shadow-tranzit-lg {
+    box-shadow: 0 8px 40px rgba(11, 31, 58, 0.15);
+  }
+  
+  .shadow-orange-glow {
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+  }
+}
+
+/* Keyframes */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .card-tranzit,
+  .card-tranzit-hover {
+    @apply rounded-xl;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    @apply px-4 py-2.5 text-sm;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
