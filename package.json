@@ -7,7 +7,8 @@
     "dev": "concurrently \"npm run server\" \"vite\"",
     "server": "nodemon --exec tsx backend/server.ts",
     "build": "tsc -b && vite build",
-    "start": "npx tsx --tsconfig tsconfig.server.json backend/server.ts",
+    "build:frontend": "tsc -b && vite build",
+    "start": "node --import tsx/esm backend/server.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
